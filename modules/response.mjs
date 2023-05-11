@@ -2,6 +2,4 @@ const read = () => {
   return "readed";
 };
 
-module.exports = {
-  read,
-};
+export { read };
