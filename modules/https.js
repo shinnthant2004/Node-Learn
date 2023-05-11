@@ -1,13 +1,10 @@
-const request = require("./request");
-const response = require("./response");
-
-const { text } = require("./request");
+const internals = require("./internals/index");
 
 const MakeRequest = () => {
-  request.send();
-  return response.read();
+  internals.send();
+  return internals.read();
 };
 
 const result = MakeRequest();
 
-console.log(require.cache);
+console.log(result);
