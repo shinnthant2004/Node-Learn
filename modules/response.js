@@ -2,4 +2,6 @@ const read = () => {
   return "readed";
 };
 
-export { read };
+module.exports = {
+  read,
+};
