@@ -1,16 +1,22 @@
 const http = require("http");
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, {
-    "Content-Type": "application/json",
-  });
+const server = http.createServer();
 
-  res.end(
-    JSON.stringify({
-      id: 1,
-      name: "Shinn Thant",
-    })
-  );
+server.on("request", (req, res) => {
+  if (req.url === "/friends") {
+    res.statusCode = 200;
+    res.write("<html>");
+    res.write("<body>");
+    res.write("<p>Shinn Thant</p>");
+    res.write("<p>Thar Htet</p>");
+    res.write("<p>Kaung Kaung</p>");
+    res.write("</body>");
+    res.write("</html>");
+    res.end();
+  } else {
+    res.statusCode = 404;
+    res.end();
+  }
 });
 
 server.listen(3000, () => {
